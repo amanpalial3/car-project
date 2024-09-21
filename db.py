@@ -7,7 +7,7 @@ def create_db_connection():
             host='localhost',
             user='root',
             password='',
-            database='mydatabase'
+            database='mysql'
         )
     except Exception as e:
         print("Database connection error:", e)

@@ -1,5 +1,6 @@
 
 from tkinter import *
+# import tkinter as tk
 from tkinter import messagebox
 import db
 from PIL import Image as PILImage, ImageTk 
@@ -13,7 +14,7 @@ class Form:
 
 
 
-        self.img = ImageTk.PhotoImage(PILImage.open("C:/Users/ASUS/Downloads/chuttersnap-gts_Eh4g1lk-unsplash.jpg").resize((1590, 1000)))
+        self.img = ImageTk.PhotoImage(PILImage.open("C:/Users/ASUS/Downloads/hbhb.webp").resize((1590, 800)))
 
 
         lbl_bg=Label(self.root,image=self.img)
@@ -24,31 +25,34 @@ class Form:
         frame = Frame(self.root, bg='black')
         frame.place(x=610, y=170, width=340, height=450)
 
-        title_label = Label(frame, text="Create an Account", font=("times new roman", 20, "bold"), fg="red", bg="white")
-        title_label.place(x=55, y=30)
+        title_label = Label(frame, text="Welcome to the Car Parking System",font=("Helvetica", 15), fg="white", bg='blue')
+        title_label.pack(pady=20)
+
+        title_label = Label(frame, text="LOGIN", font=("times new roman", 20, "bold"), fg="red", bg="white")
+        title_label.place(x=115, y=70)
 
         username_label = Label(frame, text="Username:", font=("times new roman", 18, "bold"), fg="white", bg="black")
-        username_label.place(x=70, y=155)
+        username_label.place(x=100, y=155)
 
         self.label1_ent = Entry(frame, font=('arial', 15))
         self.label1_ent.place(x=60, y=185)
 
-        email_label = Label(frame, text="Email:", font=("times new roman", 18, "bold"), fg="white", bg="black")
-        email_label.place(x=70, y=225)
+        # email_label = Label(frame, text="Email:", font=("times new roman", 18, "bold"), fg="white", bg="black")
+        # email_label.place(x=70, y=225)
 
-        self.email_ent = Entry(frame, font=('arial', 15))
-        self.email_ent.place(x=60, y=255)
+        # self.email_ent = Entry(frame, font=('arial', 15))
+        # self.email_ent.place(x=60, y=255)
 
         password_label = Label(frame, text="Password:", font=("times new roman", 18, "bold"), fg="white", bg="black")
-        password_label.place(x=70, y=300)
+        password_label.place(x=100, y=225)
 
         self.password_ent = Entry(frame, font=('arial', 15), show='*')
-        self.password_ent.place(x=60, y=330)
+        self.password_ent.place(x=60, y=260)
 
-        login_button = Button(frame, text="Login", font=('arial', 15), command=self.btn_clk, fg="red", bg="black")
+        login_button = Button(frame, text="Login", font=('arial', 15), command=self.btn_clk, bg="blue", fg="white")
         login_button.place(x=200, y=375)
 
-        new_user_button = Button(frame, text="New User", font=('arial', 15), command=self.btn_clk1, fg="red", bg="black")
+        new_user_button = Button(frame, text="New User", font=('arial', 15), command=self.btn_clk1, bg="blue", fg="white")
         new_user_button.place(x=48, y=375)
 
         self.root.mainloop()
