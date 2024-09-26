@@ -1,31 +1,37 @@
-
 from tkinter import *
-# import tkinter as tk
 from tkinter import messagebox
-import db
-from PIL import Image as PILImage, ImageTk 
-import register
+import tkinter as tk
+from PIL import Image as PILImage, ImageTk
+import db  # Ensure your database operations are defined in this module
+import register  # Import the register module to access the registration form
 
 class Form:
-    def __init__(self):
-        self.root = Tk()
+    def __init__(self,root):
+        self.root = root
         self.root.title("User Entry Form")
-        self.root.geometry('1590x1000') 
+        self.root.geometry('1590x1000')
 
+        # Load and set the background image
+        try:
+            self.img = ImageTk.PhotoImage(PILImage.open("C:/Users/ASUS/Downloads/hbhb.webp").resize((1590, 800)))
+            lbl_bg = Label(self.root, image=self.img)
+            lbl_bg.place(x=0, y=0)
+        except FileNotFoundError:
+            print("Background image not found.")
 
-
-        self.img = ImageTk.PhotoImage(PILImage.open("C:/Users/ASUS/Downloads/hbhb.webp").resize((1590, 800)))
-
-
-        lbl_bg=Label(self.root,image=self.img)
-        lbl_bg.place(x=0,y=0)
-
+             # Load and place the login symbol image
+        try:
+            self.login_icon = ImageTk.PhotoImage(PILImage.open("C:/Users/ASUS/Desktop/lock.jpg").resize((50, 50)))  # Adjust size as needed
+            icon_label = Label(frame, image=self.login_icon, bg='black')
+            icon_label.place(x=140, y=10)  # Adjust position as needed
+        except FileNotFoundError:
+            print("Login icon image not found.")
 
         # Create a frame for form elements
         frame = Frame(self.root, bg='black')
         frame.place(x=610, y=170, width=340, height=450)
 
-        title_label = Label(frame, text="Welcome to the Car Parking System",font=("Helvetica", 15), fg="white", bg='blue')
+        title_label = Label(frame, text="Welcome to the Car Parking System", font=("Helvetica", 15), fg="white", bg='blue')
         title_label.pack(pady=20)
 
         title_label = Label(frame, text="LOGIN", font=("times new roman", 20, "bold"), fg="red", bg="white")
@@ -36,12 +42,6 @@ class Form:
 
         self.label1_ent = Entry(frame, font=('arial', 15))
         self.label1_ent.place(x=60, y=185)
-
-        # email_label = Label(frame, text="Email:", font=("times new roman", 18, "bold"), fg="white", bg="black")
-        # email_label.place(x=70, y=225)
-
-        # self.email_ent = Entry(frame, font=('arial', 15))
-        # self.email_ent.place(x=60, y=255)
 
         password_label = Label(frame, text="Password:", font=("times new roman", 18, "bold"), fg="white", bg="black")
         password_label.place(x=100, y=225)
@@ -58,22 +58,22 @@ class Form:
         self.root.mainloop()
 
     def btn_clk(self):
-        data = (self.label1_ent.get(), self.email_ent.get(), self.password_ent.get())
-        print(data)
+        username = self.label1_ent.get()
+        password = self.password_ent.get()
+        # Perform login validation here with db
+        print(username, password)
         messagebox.askokcancel("Please Select OK or Cancel")
         self.root.destroy()
 
     def btn_clk1(self):
-        data = (self.label1_ent.get(), self.email_ent.get(), self.password_ent.get())
-        print(data)
+        # Close the current window
         self.root.destroy()
+        # Create a new instance of Tk for the registration form
+        new_root = tk.Tk()  # Create a new root window for registration
+        register.Form(new_root)  # Call the registration form with the new window
+       
 
 if __name__ == "__main__":
-    obj1 = Form()
-
-
-
-
-
-    
-
+    root = tk.Tk()  # Create a Tk instance
+    obj1 = Form(root)  # Pass it to the Form
+    root.mainloop() 

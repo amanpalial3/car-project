@@ -49,11 +49,11 @@ class Form:
         self.agree_checkbox = ttk.Checkbutton(self.frame, text="I Agree with Terms and Conditions", variable=self.agree_var)
         self.agree_checkbox.place(x=200, y=300)
 
-        submit_button = tk.Button(self.frame, text="Sign Up", command=self.submit_form, bg="blue", fg="white")
+        submit_button = tk.Button(self.frame, text="Sign Up", command=self.submit_form, bg="blue", fg="white" ,font=("times new roman", 15, "bold"))
         submit_button.place(x=200, y=330)
 
         # Create the Click Me button to go to the Login page
-        click_me_button = tk.Button(self.frame, text="Click Me to Login", command=self.login, bg="green", fg="white")
+        click_me_button = tk.Button(self.frame, text="Click Me to Login ➤", command=self.login, bg="green", fg="white",font=("times new roman", 18, "bold"))
         click_me_button.place(x=105, y=380 , width=300)
 
         self.root.mainloop()
