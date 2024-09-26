@@ -24,7 +24,8 @@ def register_user(data):
         return "All fields are required."
 
     if not is_valid_email(email):
-        return "Invalid email format."
+        return "Invalid email format."  
+    
 
     mydatabase = create_db_connection()
     if not mydatabase:

@@ -10,7 +10,7 @@ class Form:
     def __init__(self):
         self.root = Tk()
         self.root.title("User Entry Form")
-        self.root.geometry('1590x1000')
+        self.root.geometry('1590x1000') 
 
 
 

@@ -8,7 +8,7 @@ class Form:
     def __init__(self, root):
         self.root = root
         root.title("Create an Account")
-        root.geometry("1590x1100")
+        root.geometry("1590x1100") 
        
 
 
