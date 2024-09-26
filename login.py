@@ -12,20 +12,13 @@ class Form:
         self.root.geometry('1590x1000')
 
         # Load and set the background image
-        try:
-            self.img = ImageTk.PhotoImage(PILImage.open("C:/Users/ASUS/Downloads/hbhb.webp").resize((1590, 800)))
-            lbl_bg = Label(self.root, image=self.img)
-            lbl_bg.place(x=0, y=0)
-        except FileNotFoundError:
-            print("Background image not found.")
+        
+        self.img = ImageTk.PhotoImage(PILImage.open("C:/Users/ASUS/Downloads/hbhb.webp").resize((1590, 800)))
+        lbl_bg = Label(self.root, image=self.img)
+        lbl_bg.place(x=0, y=0)
+        
 
-             # Load and place the login symbol image
-        try:
-            self.login_icon = ImageTk.PhotoImage(PILImage.open("C:/Users/ASUS/Desktop/lock.jpg").resize((50, 50)))  # Adjust size as needed
-            icon_label = Label(frame, image=self.login_icon, bg='black')
-            icon_label.place(x=140, y=10)  # Adjust position as needed
-        except FileNotFoundError:
-            print("Login icon image not found.")
+
 
         # Create a frame for form elements
         frame = Frame(self.root, bg='black')
